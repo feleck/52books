@@ -1,0 +1,6 @@
+%h1 Authors in your library
+- @authors.each do |author|
+  %h3
+    = link_to author.full_name, author_path(author)
+%p
+  = link_to 'New Author', new_author_path, class: "btn"
