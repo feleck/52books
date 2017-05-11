@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+
+$btn_bckground: #888;
+
+body {
+  background-color: #ACA;
+}
+
+.btn {
+  background-color: $btn_bckground;
+  color: #fbdbdb;
+  padding: 5px;
+}
+
+.btn-dnger {
+  background-color: darkred;
+}
