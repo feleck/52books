@@ -1,0 +1,8 @@
+%h1 Bookstores
+- @bookstores.each do |bookstore|
+  %h3
+    = link_to bookstore.name, url_for(bookstore.url), target: 'blank'
+  %p
+    = link_to 'Edit', edit_bookstore_path(bookstore), class: 'btn'
+    = link_to 'Delete', bookstore_path(bookstore), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-dnger'
+= link_to 'New Bookstore', new_bookstore_path, class: 'btn'

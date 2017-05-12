@@ -1,0 +1,12 @@
+= form_for(@bookstore) do |f|
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+
+  %p
+    = f.label :url
+    = f.text_field :url
+
+  %p
+    = f.submit class: 'btn'
