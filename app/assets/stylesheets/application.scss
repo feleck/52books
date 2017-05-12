@@ -14,11 +14,22 @@
  *= require_self
  */
 
-
 $btn_bckground: #888;
 
 body {
-  background-color: #ACA;
+  background-color: #5c154b;
+  color: #f8eded;
+  a:link {
+    color: #faeaea;
+    text-decoration: none;
+  }
+  a:visited {
+    color: #e5a1a2;
+  }
+  a:hover {
+    color: #f8eded;
+    font-weight: bold;
+  }
 }
 
 .btn {
