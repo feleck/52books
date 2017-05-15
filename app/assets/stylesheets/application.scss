@@ -32,6 +32,24 @@ body {
   }
 }
 
+header {
+  min-height: 40px;
+  padding-top: 10px;
+  a {
+    padding: 0 10px 0 10px;
+    font-size: 1.4em;
+  }
+}
+
+#wrapper {
+  padding: 10px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
 .btn {
   background-color: $btn_bckground;
   color: #fbdbdb;

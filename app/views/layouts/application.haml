@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title 52Books
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    %header
+      = link_to '52 BOOKS', '#'
+      = link_to 'Authors', authors_path
+      = link_to 'Bookstores', bookstores_path
+    #wrapper
+      = yield
+    %footer
+      %p 52books 2017
