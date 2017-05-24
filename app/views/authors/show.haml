@@ -1,5 +1,11 @@
-%h3= @author.full_name
-%p 
+%h3
+  = @author.full_name
+  - if @author.books.count > 0
+    is an author of:
+  %ul#selector
+  - @author.books.each do |book|
+    %li= link_to book.title, book_path(book)
+%p
   = link_to 'Back', authors_path, class: 'btn'
   = link_to 'Edit', edit_author_path(@author), class: 'btn'
   = link_to 'Delete', author_path(@author), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-dnger'
