@@ -1,0 +1,12 @@
+pl:
+  number:
+    currency:
+      format:
+        unit: "PLN"
+        separator: ','
+        delimiter: ' '
+        precision: 2
+        format: '%n %u'
+  date:
+    formats:
+      default: "%d.%m.%Yr."
