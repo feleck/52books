@@ -1,0 +1,13 @@
+%h1 Books
+- @books.each do |book|
+  %h3
+    = link_to book.title, book_path(book)
+    by
+    - book.authors.each do |author|
+      = link_to author.full_name, author_path(author)
+    for
+    = number_to_currency book.price, locale: :pl
+    bought on
+    = l book.purchase_date, locale: :pl
+
+= link_to 'New Book', new_book_path, class: 'btn'

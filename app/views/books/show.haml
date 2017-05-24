@@ -1,0 +1,15 @@
+%h3
+  = @book.title
+  written by
+  - @book.authors.each do |author|
+    = link_to author.full_name, author_path(author)
+%p
+  Bought on
+  Bookstore
+  on
+  = l @book.purchase_date, locale: :pl
+  for
+  = number_to_currency(@book.price, locale: :pl)
+%p
+  = link_to 'Edit', edit_book_path(@book), class: 'btn'
+  = link_to 'Delete', book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-dnger'
