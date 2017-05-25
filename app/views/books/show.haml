@@ -5,7 +5,7 @@
     = link_to author.full_name, author_path(author)
 %p
   Bought on
-  Bookstore
+  = link_to @book.bookstore.name, @book.bookstore.url
   on
   = l @book.purchase_date, locale: :pl
   for

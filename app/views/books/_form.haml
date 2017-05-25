@@ -18,6 +18,13 @@
       { prompt: 'Choose an author', include_blank: false, selected: @book.authors.map(&:id) }, { multiple: true }
 
   %p
+    Choose a bookstore or add a
+    = link_to 'new one', new_bookstore_path
+    %br
+    = f.label :bookstore
+    = f. collection_select :bookstore_id, Bookstore.order('name ASC' ), :id, :name,
+      { prompt: 'Choose a bookstore', include_blank: false, selected: @book.bookstore_id }, { multiple: false }
+  %p
     = f.label :price
     = f.number_field :price, step: 0.01
 
