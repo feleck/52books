@@ -1,10 +1,11 @@
 class AuthorsController < ApplicationController
+  before_action :author, only: [:show, :edit, :update, :destroy]
+
   def index
     @authors = Author.all
   end
 
   def show
-    @author = Author.find(params[:id])
   end
 
   def new
@@ -21,11 +22,9 @@ class AuthorsController < ApplicationController
   end
 
   def edit
-    @author = Author.find(params[:id])
   end
 
-  def update 
-    @author = Author.find(params[:id])
+  def update
     if @author.update(author_params)
       redirect_to @author
     else
@@ -34,14 +33,17 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
-    @author = Author.find(params[:id])
     @author.destroy
     redirect_to authors_path
   end
 
   private
+
+  def author
+    @author = Author.find(params[:id])
+  end
+
   def author_params
     params.require(:author).permit(:first_name, :last_name)
   end
-
 end

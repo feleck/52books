@@ -1,4 +1,6 @@
 class BookstoresController < ApplicationController
+  before_action :bookstore, only: [:edit, :update, :destroy]
+
   def index
     @bookstores = Bookstore.all
   end
@@ -17,11 +19,9 @@ class BookstoresController < ApplicationController
   end
 
   def edit
-    @bookstore = Bookstore.find(params[:id])
   end
 
   def update
-    @bookstore = Bookstore.find(params[:id])
     if @bookstore.update(bookstore_params)
       redirect_to bookstores_path
     else
@@ -30,12 +30,15 @@ class BookstoresController < ApplicationController
   end
 
   def destroy
-    @bookstore = Bookstore.find(params[:id])
     @bookstore.destroy
     redirect_to bookstores_path
   end
 
   private
+
+  def bookstore
+    @bookstore = Bookstore.find(params[:id])
+  end
 
   def bookstore_params
     params.require(:bookstore).permit(:name, :url)
