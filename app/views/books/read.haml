@@ -1,0 +1,8 @@
+%h1 Books read this year
+- @books.each do |book|
+  %h3
+    = link_to book.title, book_path(book)
+    by
+    - book.authors.each do |author|
+      = link_to author.full_name, author_path(author)
+    = l book.purchase_date, locale: :pl
