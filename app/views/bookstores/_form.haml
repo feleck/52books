@@ -1,4 +1,4 @@
-= form_for(@bookstore) do |f|
+= form_for @bookstore do |f|
   %p
     = f.label :name
     %br
@@ -6,7 +6,7 @@
 
   %p
     = f.label :url
-    = f.text_field :url
+    = f.url_field :url
 
   %p
     = f.submit class: 'btn'
