@@ -13,6 +13,7 @@
       = link_to 'Authors', authors_path
       = link_to 'Bookstores', bookstores_path
     #wrapper
+      = render 'layouts/flash', object: flash
       = yield
     %footer
       %p 52books 2017
