@@ -1,8 +1,16 @@
-%h1 Books read this year
-- @books.each do |book|
+%h1 52 Books
+%h3
+  Are your ready to take up a challegne?
+  Try to read one book per week during a year, which is 52 books in one year!
+%h2 You have already read this year:
+- @books_read.each do |book|
   %h3
     = link_to book.title, book_path(book)
     by
     - book.authors.each do |author|
       = link_to author.full_name, author_path(author)
-    = l book.purchase_date, locale: :pl
+
+%h2 You have started reading:
+- @books.each do |book|
+  %h3
+    = link_to book.title, book_path(book)

@@ -1,4 +1,4 @@
-= form_for(@book) do |f|
+= form_for @book do |f|
   - if @book.errors.any?
     .alert.alert-danger
       %h3
@@ -16,7 +16,6 @@
     = f.label :author
     = f.collection_select :author_ids, Author.order('last_name ASC'), :id, :full_name,
       { prompt: 'Choose an author', include_blank: false, selected: @book.authors.map(&:id) }, { multiple: true }
-
   %p
     Choose a bookstore or add a
     = link_to 'new one', new_bookstore_path
@@ -27,10 +26,11 @@
   %p
     = f.label :price
     = f.number_field :price, step: 0.01
-
   %p
     = f.label :purchase_date
     = f.date_field :purchase_date
-
+  %p
+    = f.date_field :start_reading_date, type: :hidden
+    = f.date_field :finish_reading_date, type: :hidden
   %p
     = f.submit class: 'btn'

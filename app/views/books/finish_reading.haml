@@ -1,0 +1,22 @@
+%h1
+  You want mark a book as finished:
+  = @book.title
+  by:
+  - @book.authors.each do |author|
+    = author.full_name
+= form_for @book, url: { action: 'finished_reading' } do |f|
+  - if @book.errors.any?
+    .alert.alert-danger
+      %h3
+        = t('errors.template.body')
+      %ul
+        - @book.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label 'Date'
+    = f.date_field :finish_reading_date
+  %p
+    = f.submit 'Finish'
+%br
+
+=link_to 'Cancel', library_path, class: 'btn'

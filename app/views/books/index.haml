@@ -1,6 +1,9 @@
-%h1 Books
+%h1 My Library
+= link_to 'New Book', new_book_path, class: 'btn'
 - @books.each do |book|
   %h3
+    = link_to 'Start Reading', start_reading_book_path(book), class: 'btn' unless book.start_reading_date
+    = link_to 'Finish Reading', finish_reading_book_path(book), class: 'btn' if book.start_reading_date && !book.read
     = link_to book.title, book_path(book)
     by
     - book.authors.each do |author|
@@ -9,5 +12,3 @@
     = number_to_currency book.price, locale: :pl
     bought on
     = l book.purchase_date, locale: :pl
-
-= link_to 'New Book', new_book_path, class: 'btn'
